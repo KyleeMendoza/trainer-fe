@@ -20,7 +20,7 @@ function TrainerNav() {
   const links = ["/dashboard", "/training", "/calendar", "/profile"];
 
   return (
-    <div className="main-container  h-screen">
+    <div className="main-container  h-screen ">
       <div className="sub-container  h-full flex flex-col">
         <div className="heade h-[10%] z-10 bg-md-blue relative">
           <div className="absolute top-2 bottom-0 left-5 ">
@@ -33,7 +33,9 @@ function TrainerNav() {
               <NavLink to={links[index]} key={index} className="">
                 <div className="flex flex-col justify-center items-center  hover:text-[#E6AF2E]">
                   {index === 0 ? (
-                    <DashboardIcon style={{ fontSize: 50 }} />
+                    <DashboardIcon
+                      style={{ fontSize: 50, fontFamily: "Poppins" }}
+                    />
                   ) : index === 1 ? (
                     <TimelineIcon style={{ fontSize: 50 }} />
                   ) : index === 2 ? (
