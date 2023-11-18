@@ -1,130 +1,94 @@
-import * as React from "react";
-import { DataGrid, GridToolbar } from "@mui/x-data-grid";
-import { useDemoData } from "@mui/x-data-grid-generator";
+import React from "react";
+import { Link as NavLink } from "react-router-dom";
+import Box from "@mui/material/Box";
+import LinearProgress from "@mui/material/LinearProgress";
 
-import {
-  GridToolbarColumnsButton,
-  GridToolbarContainer,
-  GridToolbarFilterButton,
-  GridToolbarDensitySelector,
-  GridToolbarExport,
-} from "@mui/x-data-grid/components";
-
-const columns = [
-  {
-    field: "id",
-    headerName: "ID",
-    width: 70,
-    headerClassName: "bg-md-blue text-white border-r-2 border-black",
-  },
-  {
-    field: "name",
-    headerName: "Name",
-    width: 200,
-    headerClassName: "bg-md-blue text-white border-r-2 border-black",
-  },
-  {
-    field: "email",
-    headerName: "Email",
-    width: 200,
-    headerClassName: "bg-md-blue text-white border-r-2 border-black",
-  },
-  {
-    field: "phoneNumber",
-    headerName: "Phone Number",
-    width: 200,
-    headerClassName: "bg-md-blue text-white border-r-2 border-black",
-  },
-];
-
-const data = [
-  {
-    id: 1,
-    name: "Emily Rodriguez",
-    email: "emily@example.com",
-    phoneNumber: "555-123-9876",
-  },
-  {
-    id: 2,
-    name: "Christopher Harris",
-    email: "chris@example.com",
-    phoneNumber: "987-654-3210",
-  },
-  {
-    id: 3,
-    name: "Mia Turner",
-    email: "mia@example.com",
-    phoneNumber: "111-222-3333",
-  },
-  {
-    id: 4,
-    name: "David White",
-    email: "david@example.com",
-    phoneNumber: "444-555-6666",
-  },
-  {
-    id: 5,
-    name: "Sophie Turner",
-    email: "sophie@example.com",
-    phoneNumber: "777-888-9999",
-  },
-  {
-    id: 6,
-    name: "Caleb Martinez",
-    email: "caleb@example.com",
-    phoneNumber: "222-333-4444",
-  },
-  {
-    id: 7,
-    name: "Grace Jackson",
-    email: "grace@example.com",
-    phoneNumber: "888-999-0000",
-  },
-  {
-    id: 8,
-    name: "Leo Walker",
-    email: "leo@example.com",
-    phoneNumber: "123-456-7890",
-  },
-  {
-    id: 9,
-    name: "Aria Lewis",
-    email: "aria@example.com",
-    phoneNumber: "666-777-8888",
-  },
-  {
-    id: 10,
-    name: "Isaac Reed",
-    email: "isaac@example.com",
-    phoneNumber: "333-444-5555",
-  },
-];
-
-function CustomToolbar() {
+function Activities() {
+  const data = [
+    {
+      session: 1,
+      program: "Fire Safety Training",
+      part: "Introduction (Chapter 1)",
+      total: 3,
+    },
+    {
+      session: 2,
+      program: "First Aid Workshop",
+      part: "Basic Life Support",
+      total: 2,
+    },
+    {
+      session: 3,
+      program: "Cybersecurity Awareness",
+      part: "Password Security",
+      total: 4,
+    },
+    {
+      session: 4,
+      program: "Time Management Seminar",
+      part: "Setting Priorities",
+      total: 2,
+    },
+    {
+      session: 5,
+      program: "Team Building Retreat",
+      part: "Outdoor Activities",
+      total: 5,
+    },
+    {
+      session: 6,
+      program: "Customer Service Excellence",
+      part: "Effective Communication",
+      total: 3,
+    },
+  ];
   return (
-    <GridToolbarContainer className="flex justify-end">
-      <GridToolbarColumnsButton />
-      <GridToolbarFilterButton />
-      <GridToolbarDensitySelector />
-      <GridToolbarExport />
-    </GridToolbarContainer>
-  );
-}
-
-export default function Activities() {
-  //   const { data } = useDemoData({
-  //     dataSet: "Employee",
-  //     visibleFields: VISIBLE_FIELDS,
-  //     rowLength: 100,
-  //   });
-
-  return (
-    <div style={{ height: 550, width: "100%", padding: "1.5rem" }}>
-      <DataGrid
-        rows={data}
-        columns={columns}
-        slots={{ toolbar: CustomToolbar }}
-      />
+    <div className="relative flex flex-col justify-center items-center gap-10 px-10 py-10">
+      <div className="">
+        <p className="text-4xl uppercase font-bold">
+          appointment <span className="text-[#E6AF2E]">detail</span>
+        </p>
+      </div>
+      <div className="grid grid-cols-3 gap-10 w-[75%]">
+        {data.map((data, key) => (
+          <NavLink
+            to="/training/tables"
+            // state={{ title: dataEntry.title }}
+            className="shadow-xl h-[18rem] flex flex-col  p-5 bg-[#E6AF2E] rounded-xl hover:scale-105 transition ease-in-out"
+            style={{ boxShadow: "0px 5px 10px 0px rgba(0, 0, 0, 0.5)" }}
+            key={key}
+          >
+            <div className="h-[20%] border-b-2 mb-2 border-black">
+              <p className="italic text-2xl capitalize">
+                session <span>{data.session}</span>
+              </p>
+            </div>
+            <div className=" flex flex-col gap-8">
+              <div className="flex flex-col justify-center items-center gap-4">
+                <p className="font-bold text-3xl">{data.program}</p>
+                <p className="font-bold text-2xl">{data.part}</p>
+                <p>
+                  Total of <span>{data.total}</span> Activities
+                </p>
+              </div>
+              <div className="flex justify-center items-center">
+                <Box sx={{ width: "90%" }}>
+                  {/* Adjust the height value to make the progress bar thicker */}
+                  <LinearProgress
+                    style={{
+                      height: 25,
+                      borderRadius: "10rem",
+                      backgroundColor: "#282F44",
+                    }}
+                  />
+                </Box>
+              </div>
+            </div>
+          </NavLink>
+        ))}
+      </div>
     </div>
   );
 }
+
+export default Activities;

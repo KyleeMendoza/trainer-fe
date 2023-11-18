@@ -1,11 +1,17 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import LogoutIcon from "@mui/icons-material/Logout";
+import gigachad from "../assets/gigachad.png";
+import EditIcon from "@mui/icons-material/Edit";
+import BasicModal from "../components/BasicModal";
 
 function Profile({ user }) {
   return (
-    <div className="flex p-2 justify-center items-center border-2 border-red-600">
-      <div className=" w-[90%] rounded-2xl bg-white shadow-2xl flex flex-col justify-center items-center gap-10 py-10">
+    <div className="flex p-10 justify-center items-center ">
+      <div
+        className=" w-[80%] rounded-2xl bg-white flex flex-col justify-center items-center gap-10 py-10"
+        style={{ boxShadow: "0px 5px 10px 0px rgba(0, 0, 0, 0.5)" }}
+      >
         <div className="w-[95%] flex justify-center items-center border-b-2 border-black pb-5">
           <div>
             <p className="text-4xl uppercase font-bold">
@@ -17,7 +23,9 @@ function Profile({ user }) {
           </div>
         </div>
         <div className="w-[90%] flex flex-col gap-4 justify-center items-center border-b-2 border-gray-300  pb-5">
-          <div className="h-[20rem] w-[20rem] rounded-full bg-[#E6AF2E]"></div>
+          <div className="h-[20rem] w-[20rem] rounded-full bg-[#E6AF2E]">
+            <img src={gigachad} alt="" className="rounded-full" />
+          </div>
           <div className="flex flex-col justify-center items-center">
             <p className="font-bold text-3xl ">{user.name}</p>
             <p>{user.job}</p>
@@ -39,19 +47,31 @@ function Profile({ user }) {
                 className="border-2 border-gray-200  p-4 rounded-lg w-full"
               />
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 relative">
               <p className="font-semibold text-xl w-[10rem]">Password: </p>
-              <input
-                placeholder="********"
-                className="border-2 border-gray-200  p-4 rounded-lg w-full"
-              />
+              <div className="relative w-full">
+                <input
+                  placeholder="******"
+                  className="border-2 border-gray-200 p-4 rounded-lg w-full"
+                />
+                <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+                  <BasicModal type={"password"} />
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-4">
-              <p className="font-semibold text-xl w-[10rem]">Contact No.: </p>
-              <input
-                placeholder="xxx-xxxx-xxxx"
-                className="border-2 border-gray-200  p-4 rounded-lg w-full"
-              />
+            <div className="flex items-center gap-4 relative">
+              <p className="font-semibold text-xl w-[10rem]">
+                Contact Number:{" "}
+              </p>
+              <div className="relative w-full">
+                <input
+                  placeholder="+63"
+                  className="border-2 border-gray-200 p-4 rounded-lg w-full"
+                />
+                <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+                  <BasicModal type={"contact"} />
+                </div>
+              </div>
             </div>
             <div className="flex items-center gap-4">
               <p className="font-semibold text-xl w-[10rem]">Email: </p>

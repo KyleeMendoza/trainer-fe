@@ -59,8 +59,8 @@ function Training() {
     },
   ];
   return (
-    <div className=" border-2 border-red-600">
-      <div className="relative border-2 border-green-600 flex flex-col justify-center items-center gap-10 px-10 py-10">
+    <div className="">
+      <div className="relative flex flex-col justify-center items-center gap-10 px-10 py-10">
         <div className="">
           <p className="text-4xl uppercase font-bold">
             appointment <span className="text-[#E6AF2E]">detail</span>
@@ -72,7 +72,8 @@ function Training() {
               key={index}
               to="/training/tables"
               state={{ title: dataEntry.title }}
-              className="shadow-xl h-[20rem] flex flex-col justify-between p-5 bg-[#E6AF2E] rounded-xl"
+              className="shadow-xl h-[20rem] flex flex-col justify-between p-5 bg-[#E6AF2E] rounded-xl hover:scale-105 transition ease-in-out"
+              style={{ boxShadow: "0px 5px 10px 0px rgba(0, 0, 0, 0.5)" }}
             >
               <div className="flex justify-between">
                 <p className="font-bold">{dataEntry.date}</p>

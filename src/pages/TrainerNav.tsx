@@ -22,7 +22,10 @@ function TrainerNav() {
   return (
     <div className="main-container  h-screen ">
       <div className="sub-container  h-full flex flex-col">
-        <div className="heade h-[10%] z-10 bg-md-blue relative">
+        <div
+          className="heade h-[10%] z-10 bg-md-blue relative"
+          style={{ boxShadow: "0px 5px 10px 0px rgba(0, 0, 0, 0.5)" }}
+        >
           <div className="absolute top-2 bottom-0 left-5 ">
             <img src={Logo} alt="logo" />
           </div>
@@ -52,11 +55,6 @@ function TrainerNav() {
             <Outlet />
           </div>
         </div>
-        {/* <div className="foote h-[10%] z-10 bg-md-blue relative">
-          <div className="absolute top-2 bottom-0 left-5 ">
-            <img src={Logo} alt="logo" />
-          </div>
-        </div> */}
       </div>
     </div>
   );

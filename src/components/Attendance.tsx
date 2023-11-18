@@ -1,6 +1,7 @@
 import * as React from "react";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { useDemoData } from "@mui/x-data-grid-generator";
+import Switch from "@mui/material/Switch";
 
 import {
   GridToolbarColumnsButton,
@@ -9,6 +10,12 @@ import {
   GridToolbarDensitySelector,
   GridToolbarExport,
 } from "@mui/x-data-grid/components";
+
+const label = { inputProps: { "aria-label": "Switch demo" } };
+
+const CustomSwitch = ({ defaultChecked }) => (
+  <Switch {...label} defaultChecked={defaultChecked} />
+);
 
 const columns = [
   {
@@ -24,16 +31,31 @@ const columns = [
     headerClassName: "bg-md-blue text-white border-r-2 border-black",
   },
   {
-    field: "email",
-    headerName: "Email",
+    field: "participantId",
+    headerName: "Participant ID",
     width: 200,
     headerClassName: "bg-md-blue text-white border-r-2 border-black",
   },
   {
-    field: "phoneNumber",
-    headerName: "Phone Number",
+    field: "arrivalTime",
+    headerName: "Arrival Time",
     width: 200,
     headerClassName: "bg-md-blue text-white border-r-2 border-black",
+  },
+  {
+    field: "status",
+    headerName: "Status",
+    width: 200,
+    headerClassName: "bg-md-blue text-white border-r-2 border-black",
+  },
+  {
+    field: "action",
+    headerName: "Action",
+    width: 200,
+    headerClassName: "bg-md-blue text-white border-r-2 border-black",
+    renderCell: (params) => (
+      <CustomSwitch {...label} defaultChecked={params.row.action} />
+    ),
   },
 ];
 
@@ -41,62 +63,82 @@ const data = [
   {
     id: 1,
     name: "Sophia Miller",
-    email: "sophia@example.com",
-    phoneNumber: "555-123-9876",
+    participantId: "435467",
+    arrivalTime: "7:30AM (GMT +8)",
+    status: "Present",
+    action: true,
   },
   {
     id: 2,
-    name: "Liam Brown",
-    email: "liam@example.com",
-    phoneNumber: "987-654-3210",
+    name: "Ethan Johnson",
+    participantId: "987654",
+    arrivalTime: "8:15AM (GMT +8)",
+    status: "Absent",
+    action: true,
   },
   {
     id: 3,
-    name: "Ava Taylor",
-    email: "ava@example.com",
-    phoneNumber: "111-222-3333",
+    name: "Olivia Davis",
+    participantId: "123456",
+    arrivalTime: "7:55AM (GMT +8)",
+    status: "Present",
+    action: true,
   },
   {
     id: 4,
-    name: "Noah Harris",
-    email: "noah@example.com",
-    phoneNumber: "444-555-6666",
+    name: "Noah Smith",
+    participantId: "567890",
+    arrivalTime: "7:40AM (GMT +8)",
+    status: "Present",
+    action: true,
   },
   {
     id: 5,
-    name: "Olivia Turner",
-    email: "olivia@example.com",
-    phoneNumber: "777-888-9999",
+    name: "Ava Wilson",
+    participantId: "234567",
+    arrivalTime: "8:00AM (GMT +8)",
+    status: "Absent",
+    action: true,
   },
   {
     id: 6,
-    name: "Jackson Smith",
-    email: "jackson@example.com",
-    phoneNumber: "222-333-4444",
+    name: "Liam Brown",
+    participantId: "876543",
+    arrivalTime: "7:25AM (GMT +8)",
+    status: "Present",
+    action: true,
   },
   {
     id: 7,
-    name: "Emma Johnson",
-    email: "emma@example.com",
-    phoneNumber: "888-999-0000",
+    name: "Emma Lee",
+    participantId: "345678",
+    arrivalTime: "7:45AM (GMT +8)",
+    status: "Absent",
+    action: true,
   },
   {
     id: 8,
-    name: "Aiden White",
-    email: "aiden@example.com",
-    phoneNumber: "123-456-7890",
+    name: "Jackson Wang",
+    participantId: "654321",
+    arrivalTime: "8:10AM (GMT +8)",
+    status: "Present",
+    action: true,
   },
   {
     id: 9,
-    name: "Chloe Walker",
-    email: "chloe@example.com",
-    phoneNumber: "666-777-8888",
+    name: "Isabella Chen",
+    participantId: "789012",
+    arrivalTime: "8:20AM (GMT +8)",
+    status: "Present",
+    action: true,
   },
   {
     id: 10,
-    name: "Lucas Reed",
-    email: "lucas@example.com",
-    phoneNumber: "333-444-5555",
+    name: "Lucas Kim",
+    participantId: "210987",
+    arrivalTime: "7:35AM (GMT +8)",
+    status: "Absent",
+    action: true,
   },
 ];
 
@@ -112,12 +154,6 @@ function CustomToolbar() {
 }
 
 export default function Attendance() {
-  //   const { data } = useDemoData({
-  //     dataSet: "Employee",
-  //     visibleFields: VISIBLE_FIELDS,
-  //     rowLength: 100,
-  //   });
-
   return (
     <div style={{ height: 550, width: "100%", padding: "1.5rem" }}>
       <DataGrid
