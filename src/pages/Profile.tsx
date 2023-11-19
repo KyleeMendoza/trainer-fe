@@ -31,7 +31,7 @@ function Profile({ user }) {
             <p>{user.job}</p>
           </div>
         </div>
-        <div className="  w-[80rem] p-2 flex flex-col items-center justify-center gap-4">
+        <div className="  w-[75rem] p-2 flex flex-col items-center justify-center gap-4">
           <div className="grid grid-cols-2 grid-rows-3 grid-flow-row gap-10 p-5 w-full border-b-2 border-gray-300">
             <div className="flex items-center gap-4">
               <p className="font-semibold text-xl w-[10rem]">First Name: </p>
