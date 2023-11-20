@@ -14,7 +14,7 @@ const columns = [
   {
     field: "id",
     headerName: "ID",
-    width: 70,
+    width: 100,
     headerClassName: "bg-md-blue text-white border-r-2 border-black",
   },
   {

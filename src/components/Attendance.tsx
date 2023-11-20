@@ -2,6 +2,9 @@ import * as React from "react";
 import { DataGrid, GridToolbar, GridRowSelectionModel, GridRowId  } from "@mui/x-data-grid";
 import { useDemoData } from "@mui/x-data-grid-generator";
 import MenuItem from '@mui/material/MenuItem';
+import { GridToolbarExportContainer } from "@mui/x-data-grid/components";
+import { GridCsvExportMenuItem } from "@mui/x-data-grid/components";
+import { gridFilteredSortedRowIdsSelector, gridVisibleColumnFieldsSelector, useGridApiContext } from "@mui/x-data-grid";
 
 import {
   GridToolbarColumnsButton,
@@ -11,16 +14,13 @@ import {
   GridToolbarExport,
 } from "@mui/x-data-grid/components";
 
-import { GridToolbarExportContainer } from "@mui/x-data-grid/components";
-import { GridCsvExportMenuItem } from "@mui/x-data-grid/components";
-import { gridFilteredSortedRowIdsSelector, gridVisibleColumnFieldsSelector, useGridApiContext } from "@mui/x-data-grid";
 import Button from "@mui/material/Button";
 
 const columns = [
   {
     field: "id",
     headerName: "ID",
-    width: 70,
+    width: 100,
     headerClassName: "bg-md-blue text-white border-r-2 border-black",
   },
   {
@@ -208,7 +208,7 @@ export default function Attendance() {
 
   const [selectedNames, setSelectedNames] = React.useState<string[]>([]);
 
-  const [updatedData, setUpdatedData] = React.useState<object[]>([]);
+  const [updatedData, setUpdatedData] = React.useState<object[]>(data);
 
   // React.useEffect(() => {
   //   // console.log(selectedNames)
@@ -231,9 +231,9 @@ export default function Attendance() {
   }, [data, selectedNames])
 
   return (
-    <div style={{ height: 550, width: "100%", padding: "1.5rem" }}>
-       <DataGrid
-        rows={data}
+    <>
+    <DataGrid
+        rows={updatedData}
         columns={columns}
         slots={{ toolbar: CustomToolbar }}
         checkboxSelection
@@ -248,9 +248,9 @@ export default function Attendance() {
         }}
         rowSelectionModel={rowSelectionModel}
       />
-      <Button variant="contained" onClick={() => console.log(updatedData)}>
+      <Button variant="contained" onClick={() => console.log(updatedData)} className="w-[5%]">
         Save
       </Button>
-    </div>
+      </>
   );
 }

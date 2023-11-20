@@ -77,7 +77,7 @@ export default function TableTabs() {
         </div>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <div className=" rounded-2xl shadow-xl">
+        <div className=" rounded-2xl shadow-xl flex flex-col gap-4 justify-center">
           <Attendance />
         </div>
       </CustomTabPanel>
