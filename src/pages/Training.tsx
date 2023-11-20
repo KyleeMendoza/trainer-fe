@@ -71,7 +71,12 @@ function Training() {
             <NavLink
               key={index}
               to="/training/tables"
-              state={{ title: dataEntry.title, sessions: dataEntry.sessions }}
+              state={{
+                title: dataEntry.title,
+                sessions: dataEntry.sessions,
+                trainer: dataEntry.trainer,
+                courseID: dataEntry.courseID,
+              }}
               className="shadow-xl h-[18rem] flex flex-col justify-between p-5 bg-[#E6AF2E] rounded-xl hover:scale-105 transition ease-in-out"
               style={{ boxShadow: "0px 5px 10px 0px rgba(0, 0, 0, 0.5)" }}
             >

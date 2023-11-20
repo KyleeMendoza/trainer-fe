@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link as NavLink } from "react-router-dom";
 import Box from "@mui/material/Box";
 import LinearProgress from "@mui/material/LinearProgress";
 import ActivityModal from "./ActivityModal";
+import Button from "@mui/material/Button";
 
-function Activities({ setShowAlert }) {
+type ActivityData = {
+  id: number;
+  session: number;
+  program: string;
+  part: string;
+  activity: { id: number; name: string; status: string }[];
+};
+
+function Activities({ setShowAlert, data }) {
+  const [activityArray, setActivityArray] = useState<ActivityData[]>([]);
+
+  React.useEffect(() => {
+    console.log(activityArray);
+  }, [activityArray]);
+
   const Actdata = [
     {
       id: 1,
@@ -74,6 +89,12 @@ function Activities({ setShowAlert }) {
     },
   ];
 
+  const handleSave = () => {
+    // Create a new array by spreading the properties of data and the elements of Actdata
+    const newArray = [{ ...data }, ...Actdata];
+    setActivityArray(newArray);
+  };
+
   return (
     <div className="relative flex flex-col justify-center items-center gap-10 px-10 py-10">
       <div className="">
@@ -124,6 +145,13 @@ function Activities({ setShowAlert }) {
           </div>
         ))}
       </div>
+      <Button
+        variant="contained"
+        style={{ backgroundColor: "#E6AF2E" }}
+        onClick={handleSave}
+      >
+        Complete Training
+      </Button>
     </div>
   );
 }

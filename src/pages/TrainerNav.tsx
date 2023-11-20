@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "@mui/material/Container";
 import { Link as NavLink, Outlet } from "react-router-dom";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -14,6 +14,12 @@ import EventNoteOutlinedIcon from "@mui/icons-material/EventNoteOutlined";
 import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined";
 
 function TrainerNav({ showAlert, setShowAlert }) {
+  const [selectedButton, setSelectedButton] = useState("/dashboard");
+
+  useEffect(() => {
+    console.log(selectedButton);
+  }, [selectedButton]);
+
   //NAV LINK NAMES
   const linkName = ["Dashboard", "Training", "Calendar", "Profile"];
 
@@ -46,13 +52,43 @@ function TrainerNav({ showAlert, setShowAlert }) {
                   {index === 0 ? (
                     <DashboardIcon
                       style={{ fontSize: 50, fontFamily: "Poppins" }}
+                      className={`${
+                        selectedButton === "/dashboard"
+                          ? "border-[#E6AF2E] border-2"
+                          : ""
+                      }`}
+                      onClick={() => setSelectedButton("/dashboard")}
                     />
                   ) : index === 1 ? (
-                    <TimelineIcon style={{ fontSize: 50 }} />
+                    <TimelineIcon
+                      style={{ fontSize: 50 }}
+                      className={`${
+                        selectedButton === "/training"
+                          ? "border-[#E6AF2E] border-2"
+                          : ""
+                      }`}
+                      onClick={() => setSelectedButton("/training")}
+                    />
                   ) : index === 2 ? (
-                    <EventNoteOutlinedIcon style={{ fontSize: 50 }} />
+                    <EventNoteOutlinedIcon
+                      style={{ fontSize: 50 }}
+                      className={`${
+                        selectedButton === "/calendar"
+                          ? "border-[#E6AF2E] border-2"
+                          : ""
+                      }`}
+                      onClick={() => setSelectedButton("/calendar")}
+                    />
                   ) : index === 3 ? (
-                    <AccountBoxOutlinedIcon style={{ fontSize: 50 }} />
+                    <AccountBoxOutlinedIcon
+                      style={{ fontSize: 50 }}
+                      className={`${
+                        selectedButton === "/profile"
+                          ? "border-[#E6AF2E] border-2"
+                          : ""
+                      }`}
+                      onClick={() => setSelectedButton("/profile")}
+                    />
                   ) : null}
                   <p className="text-md ">{item}</p>
                 </div>

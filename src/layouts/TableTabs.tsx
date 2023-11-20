@@ -50,7 +50,15 @@ export default function TableTabs({ setShowAlert }) {
   const [value, setValue] = React.useState(0);
   const { state } = location;
   const title = state && state.title;
-  const sessions = state && state.sessions; //if you'll ever need the session be declared in db
+  const sessions = state && state.sessions;
+  const trainer = state && state.trainer;
+  const courseID = state && state.courseID;
+
+  const data = {
+    title: title,
+    trainer: trainer,
+    courseID: courseID,
+  };
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -84,7 +92,7 @@ export default function TableTabs({ setShowAlert }) {
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
         <div className=" rounded-2xl shadow-xl p-5">
-          <Activities setShowAlert={setShowAlert} />
+          <Activities setShowAlert={setShowAlert} data={data} />
         </div>
       </CustomTabPanel>
     </Box>
