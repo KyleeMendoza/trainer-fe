@@ -6,9 +6,9 @@ import gigachad from "../assets/gigachad.png";
 
 function Dashboard({ user }) {
   return (
-    <div className="flex  ">
+    <div className="flex">
       <div
-        className=" flex bg-white flex-col gap-10 py-7 px-4"
+        className=" flex bg-white flex-col gap-10 py-7 px-5"
         style={{ boxShadow: "0px 5px 10px 0px rgba(0, 0, 0, 0.5)" }}
       >
         <div className=" flex justify-center items-center gap-5">
@@ -21,15 +21,15 @@ function Dashboard({ user }) {
           </div>
         </div>
         <div className="flex flex-col gap-4 justify-center items-center">
-          <div className="w-[20rem] h-[20rem] rounded-full bg-gray-400">
+          <div className="w-[16rem] h-[16rem] rounded-full bg-gray-400">
             <img src={gigachad} alt="icon" className="rounded-full" />
           </div>
           <div className="flex flex-col justify-center items-center">
-            <p className="font-bold text-4xl">{user.name}</p>
+            <p className="font-bold text-3xl">{user.name}</p>
             <p className="text-lg">{user.job}</p>
           </div>
         </div>
-        <div className="flex flex-col gap-6 ">
+        <div className="flex flex-col gap-6 mt-10">
           <div>
             <p className="text-2xl font-bold">
               Appointments <span className="text-[#E6AF2E]">Calendar</span>
@@ -37,7 +37,7 @@ function Dashboard({ user }) {
           </div>
           <div className="flex flex-col">
             {user.appointments.map((appointment, key) => (
-              <div className="h-[10rem] w-[25rem]  " key={key}>
+              <div className="h-[10rem] w-[20rem]  " key={key}>
                 <div className="h-full py-2 flex gap-4 border-b-2 border-black">
                   <div className="flex flex-col p-2 rounded-lg h-[4rem] bg-white justify-center items-center shadow-2xl">
                     <p className="text-[#E6AF2E] font-bold text-lg">
@@ -47,8 +47,8 @@ function Dashboard({ user }) {
                   </div>
                   <div className="flex flex-col justify-between">
                     <div className="flex flex-col">
-                      <p className="font-bold text-2xl">{appointment.title}</p>
-                      <p className="text-xl">{appointment.name}</p>
+                      <p className="font-bold text-xl">{appointment.title}</p>
+                      <p className="text-lg">{appointment.name}</p>
                     </div>
                     <div className="flex flex-col">
                       <p>{appointment.date} </p>
@@ -73,34 +73,34 @@ function Dashboard({ user }) {
             <p>June 28, 2024</p>
           </div>
           <div
-            className="w-full  text-white bg-[#282F44] rounded-xl flex flex-col justify-center items-center p-8 gap-4"
+            className=" text-white bg-[#282F44] rounded-xl flex flex-col justify-center items-center p-10 gap-4"
             style={{ boxShadow: "0px 5px 10px 0px rgba(0, 0, 0, 0.5)" }}
           >
             <div className="flex justify-between items-center w-full">
               <p className="text-xl font-bold">
                 Your Training Program Progress!
               </p>
-              <p>View All </p>
+              <a href="/training">View All </a>
             </div>
-            <div className="flex gap-4 ">
+            <div className="flex gap-4">
               {user.program.map((program, key) => (
                 <div
-                  className="h-[18rem] w-[20rem] flex flex-col justify-center items-center gap-3 bg-white text-black rounded-xl"
+                  className="h-[16rem] w-[17rem] flex flex-col justify-center items-center gap-3 bg-white text-black rounded-xl"
                   key={key}
                 >
-                  <p className="text-[2.2rem] font-semibold italic">
+                  <p className="text-[1.8rem] font-semibold italic">
                     {program.name}
                   </p>
-                  <p className="text-[2.2rem] font-bold text-[#E6AF2E]">
+                  <p className="text-[2rem] font-bold text-[#E6AF2E]">
                     {program.title}
                   </p>
-                  <div className="flex flex-col justify-center items-center font-semibold text-xl">
+                  <div className="flex flex-col justify-center items-center font-semibold text-lg">
                     <p>
                       Total of <span>{program.session}</span> sessions
                     </p>
                     <p>{program.date}</p>
                   </div>
-                  <Box sx={{ width: "90%" }}>
+                  <Box sx={{ width: "85%" }}>
                     {/* Adjust the height value to make the progress bar thicker */}
                     <LinearProgress
                       style={{
@@ -121,7 +121,7 @@ function Dashboard({ user }) {
             <div className="flex justify-between items-center w-full">
               <p className="text-xl font-bold">Activity Feed</p>
             </div>
-            <div className="flex flex-col gap-4 items-start">
+            <div className="w-full flex flex-col gap-4 items-start overflow-y-auto h-[15rem]  ">
               {user.feed.map((feed, key) => (
                 <div
                   className="flex justify-center items-center gap-3"

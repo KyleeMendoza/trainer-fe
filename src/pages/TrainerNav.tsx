@@ -4,6 +4,7 @@ import { Link as NavLink, Outlet } from "react-router-dom";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import Alert from "@mui/material/Alert";
 
 import Logo from "../assets/logo.png";
 
@@ -12,7 +13,7 @@ import TimelineIcon from "@mui/icons-material/Timeline";
 import EventNoteOutlinedIcon from "@mui/icons-material/EventNoteOutlined";
 import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined";
 
-function TrainerNav() {
+function TrainerNav({ showAlert, setShowAlert }) {
   //NAV LINK NAMES
   const linkName = ["Dashboard", "Training", "Calendar", "Profile"];
 
@@ -20,7 +21,14 @@ function TrainerNav() {
   const links = ["/dashboard", "/training", "/calendar", "/profile"];
 
   return (
-    <div className="main-container  h-screen ">
+    <div className="main-container  h-screen relative">
+      {showAlert && (
+        <div className="w-[15%] absolute top-5 left-[45%] right-1/2 z-20">
+          <Alert onClose={() => setShowAlert(false)} severity="success">
+            Data successfully saved.
+          </Alert>
+        </div>
+      )}
       <div className="sub-container  h-full flex flex-col">
         <div
           className="heade h-[10%] z-10 bg-md-blue relative"

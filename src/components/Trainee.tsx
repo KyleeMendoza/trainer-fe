@@ -119,7 +119,7 @@ export default function Trainee() {
   //   });
 
   return (
-    <div style={{ height: 550, width: "100%", padding: "1.5rem" }}>
+    <div style={{ height: 600, width: "100%", padding: "1.5rem" }}>
       <DataGrid
         rows={data}
         columns={columns}

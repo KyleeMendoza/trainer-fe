@@ -44,12 +44,13 @@ function a11yProps(index) {
   };
 }
 
-export default function TableTabs() {
+export default function TableTabs({ setShowAlert }) {
   const location = useLocation();
 
   const [value, setValue] = React.useState(0);
   const { state } = location;
   const title = state && state.title;
+  const sessions = state && state.sessions; //if you'll ever need the session be declared in db
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -72,18 +73,18 @@ export default function TableTabs() {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <div className=" rounded-2xl shadow-xl">
+        <div className=" rounded-2xl shadow-xl p-5">
           <Trainee />
         </div>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <div className=" rounded-2xl shadow-xl flex flex-col gap-4 justify-center">
-          <Attendance />
+        <div className=" rounded-2xl shadow-xl p-5">
+          <Attendance setShowAlert={setShowAlert} />
         </div>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        <div className=" rounded-2xl shadow-xl">
-          <Activities />
+        <div className=" rounded-2xl shadow-xl p-5">
+          <Activities setShowAlert={setShowAlert} />
         </div>
       </CustomTabPanel>
     </Box>

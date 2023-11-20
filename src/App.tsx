@@ -17,6 +17,7 @@ function App() {
   const user = {
     name: "Peter Roosevelt",
     job: "Licensed Trainer",
+    email: "peterroosevelt@gmail.com",
     appointments: [
       {
         day: "Mon",
@@ -76,16 +77,54 @@ function App() {
         event: "You recently change your password",
         log: "10mins ago",
       },
+      {
+        event: "You recently change your password",
+        log: "10mins ago",
+      },
+      {
+        event: "You recently change your password",
+        log: "10mins ago",
+      },
+      {
+        event: "You recently change your password",
+        log: "10mins ago",
+      },
+      {
+        event: "You recently change your password",
+        log: "10mins ago",
+      },
+      {
+        event: "You recently change your password",
+        log: "10mins ago",
+      },
+      {
+        event: "You recently change your password",
+        log: "10mins ago",
+      },
+      {
+        event: "You recently change your password",
+        log: "10mins ago",
+      },
     ],
   };
+
+  const [showAlert, setShowAlert] = React.useState(false);
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<TrainerNav />}>
+        <Route
+          path="/"
+          element={
+            <TrainerNav showAlert={showAlert} setShowAlert={setShowAlert} />
+          }
+        >
           <Route index element={<Dashboard user={user} />} />
           <Route path="dashboard" element={<Dashboard user={user} />} />
-          <Route path="training/*" element={<TrainingRoutes />} />
+          <Route
+            path="training/*"
+            element={<TrainingRoutes setShowAlert={setShowAlert} />}
+          />
           <Route path="calendar" element={<Calendar />} />
           <Route path="profile" element={<Profile user={user} />} />
         </Route>

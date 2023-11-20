@@ -6,7 +6,7 @@ function Training() {
     {
       date: "11/07/23",
       time: "07:30 PM",
-      sessions: "6 sessions",
+      sessions: "6",
       title: "Data 1",
       trainer: "Mr. Peter Roosevelt",
       role: "Trainer",
@@ -15,7 +15,7 @@ function Training() {
     {
       date: "11/07/23",
       time: "07:30 PM",
-      sessions: "6 sessions",
+      sessions: "6",
       title: "Data 2",
       trainer: "Mr. Peter Roosevelt",
       role: "Trainer",
@@ -24,7 +24,7 @@ function Training() {
     {
       date: "11/07/23",
       time: "07:30 PM",
-      sessions: "6 sessions",
+      sessions: "6",
       title: "Data 3",
       trainer: "Mr. Peter Roosevelt",
       role: "Trainer",
@@ -33,7 +33,7 @@ function Training() {
     {
       date: "11/07/23",
       time: "07:30 PM",
-      sessions: "6 sessions",
+      sessions: "6",
       title: "Data 4",
       trainer: "Mr. Peter Roosevelt",
       role: "Trainer",
@@ -42,7 +42,7 @@ function Training() {
     {
       date: "11/07/23",
       time: "07:30 PM",
-      sessions: "6 sessions",
+      sessions: "6",
       title: "Data 5",
       trainer: "Mr. Peter Roosevelt",
       role: "Trainer",
@@ -51,7 +51,7 @@ function Training() {
     {
       date: "11/07/23",
       time: "07:30 PM",
-      sessions: "6 sessions",
+      sessions: "6",
       title: "Data 6",
       trainer: "Mr. Peter Roosevelt",
       role: "Trainer",
@@ -66,13 +66,13 @@ function Training() {
             appointment <span className="text-[#E6AF2E]">detail</span>
           </p>
         </div>
-        <div className="grid grid-cols-3 gap-10 w-[75%]">
+        <div className="grid grid-cols-3 gap-8 w-[75%]">
           {trainingData.map((dataEntry, index) => (
             <NavLink
               key={index}
               to="/training/tables"
-              state={{ title: dataEntry.title }}
-              className="shadow-xl h-[20rem] flex flex-col justify-between p-5 bg-[#E6AF2E] rounded-xl hover:scale-105 transition ease-in-out"
+              state={{ title: dataEntry.title, sessions: dataEntry.sessions }}
+              className="shadow-xl h-[18rem] flex flex-col justify-between p-5 bg-[#E6AF2E] rounded-xl hover:scale-105 transition ease-in-out"
               style={{ boxShadow: "0px 5px 10px 0px rgba(0, 0, 0, 0.5)" }}
             >
               <div className="flex justify-between">
@@ -81,7 +81,7 @@ function Training() {
               </div>
               <div className="flex flex-col justify-center items-center gap-4">
                 <p className="text-2xl font-semibold italic">
-                  {dataEntry.sessions}
+                  {dataEntry.sessions} sessions
                 </p>
                 <p className="text-3xl font-bold">{dataEntry.title}</p>
                 <div className="flex flex-col justify-center items-center">

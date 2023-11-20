@@ -9,7 +9,7 @@ function Profile({ user }) {
   return (
     <div className="flex p-10 justify-center items-center ">
       <div
-        className=" w-[80%] rounded-2xl bg-white flex flex-col justify-center items-center gap-10 py-10"
+        className=" w-[90%] rounded-2xl bg-white flex flex-col justify-center items-center gap-10 py-10"
         style={{ boxShadow: "0px 5px 10px 0px rgba(0, 0, 0, 0.5)" }}
       >
         <div className="w-[95%] flex justify-center items-center border-b-2 border-black pb-5">
@@ -31,19 +31,21 @@ function Profile({ user }) {
             <p>{user.job}</p>
           </div>
         </div>
-        <div className="  w-[75rem] p-2 flex flex-col items-center justify-center gap-4">
+        <div className="  w-[70rem] p-2 flex flex-col items-center justify-center gap-4">
           <div className="grid grid-cols-2 grid-rows-3 grid-flow-row gap-10 p-5 w-full border-b-2 border-gray-300">
             <div className="flex items-center gap-4">
               <p className="font-semibold text-xl w-[10rem]">First Name: </p>
               <input
-                placeholder="Peter"
+                value={user.name.split(" ")[0]}
+                readOnly
                 className="border-2 border-gray-200  p-4 rounded-lg w-full"
               />
             </div>
             <div className="flex items-center gap-4">
               <p className="font-semibold text-xl w-[10rem]">Last Name: </p>
               <input
-                placeholder="Parker"
+                value={user.name.split(" ")[1]}
+                readOnly
                 className="border-2 border-gray-200  p-4 rounded-lg w-full"
               />
             </div>
@@ -76,7 +78,8 @@ function Profile({ user }) {
             <div className="flex items-center gap-4">
               <p className="font-semibold text-xl w-[10rem]">Email: </p>
               <input
-                placeholder="Peter"
+                value={user.email}
+                readOnly
                 className="border-2 border-gray-200  p-4 rounded-lg w-full"
               />
             </div>
