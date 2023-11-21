@@ -14,17 +14,27 @@ import EventNoteOutlinedIcon from "@mui/icons-material/EventNoteOutlined";
 import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined";
 
 function TrainerNav({ showAlert, setShowAlert }) {
-  const [selectedButton, setSelectedButton] = useState("/dashboard");
+  const [navigationState, setNavigationState] = useState("dashboard");
 
   useEffect(() => {
-    console.log(selectedButton);
-  }, [selectedButton]);
+    // Retrieve navigation state on component mount
+    const savedNavigationState = localStorage.getItem("navigationState");
+    if (savedNavigationState) {
+      setNavigationState(savedNavigationState);
+    }
+  }, []);
 
   //NAV LINK NAMES
   const linkName = ["Dashboard", "Training", "Calendar", "Profile"];
 
   //NAV LINKS
   const links = ["/dashboard", "/training", "/calendar", "/profile"];
+
+  const handleNavigationClick = (newState) => {
+    // Save the new navigation state in localStorage
+    localStorage.setItem("navigationState", newState);
+    setNavigationState(newState);
+  };
 
   return (
     <div className="main-container  h-screen relative">
@@ -53,41 +63,41 @@ function TrainerNav({ showAlert, setShowAlert }) {
                     <DashboardIcon
                       style={{ fontSize: 50, fontFamily: "Poppins" }}
                       className={`${
-                        selectedButton === "/dashboard"
+                        navigationState === "dashboard"
                           ? "border-[#E6AF2E] border-2"
                           : ""
                       }`}
-                      onClick={() => setSelectedButton("/dashboard")}
+                      onClick={() => handleNavigationClick("dashboard")}
                     />
                   ) : index === 1 ? (
                     <TimelineIcon
                       style={{ fontSize: 50 }}
                       className={`${
-                        selectedButton === "/training"
+                        navigationState === "training"
                           ? "border-[#E6AF2E] border-2"
                           : ""
                       }`}
-                      onClick={() => setSelectedButton("/training")}
+                      onClick={() => handleNavigationClick("training")}
                     />
                   ) : index === 2 ? (
                     <EventNoteOutlinedIcon
                       style={{ fontSize: 50 }}
                       className={`${
-                        selectedButton === "/calendar"
+                        navigationState === "calendar"
                           ? "border-[#E6AF2E] border-2"
                           : ""
                       }`}
-                      onClick={() => setSelectedButton("/calendar")}
+                      onClick={() => handleNavigationClick("calendar")}
                     />
                   ) : index === 3 ? (
                     <AccountBoxOutlinedIcon
                       style={{ fontSize: 50 }}
                       className={`${
-                        selectedButton === "/profile"
+                        navigationState === "profile"
                           ? "border-[#E6AF2E] border-2"
                           : ""
                       }`}
-                      onClick={() => setSelectedButton("/profile")}
+                      onClick={() => handleNavigationClick("profile")}
                     />
                   ) : null}
                   <p className="text-md ">{item}</p>

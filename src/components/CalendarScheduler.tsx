@@ -65,9 +65,30 @@ export default function CalendarScheduler() {
 
   return (
     <Scheduler
-      getRemoteEvents={fetchRemote}
-      onConfirm={handleConfirm}
-      onDelete={handleDelete}
+      view="month"
+      events={[
+        {
+          event_id: 1,
+          title: "Event 1",
+          start: new Date("2023/11/2 09:30"),
+          end: new Date("2023/11/3 10:30"),
+          editable: false,
+          deletable: false,
+          draggable: false,
+        },
+        {
+          event_id: 2,
+          title: "Event 2",
+          start: new Date("2023/11/11 10:00"),
+          end: new Date("2023/11/12 11:00"),
+          editable: false,
+          deletable: false,
+          draggable: false,
+        },
+      ]}
+      editable={false}
+      deletable={false}
+      draggable={false}
     />
   );
 }

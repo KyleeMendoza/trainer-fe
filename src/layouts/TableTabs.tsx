@@ -9,6 +9,10 @@ import Trainee from "../components/Trainee";
 import Attendance from "../components/Attendance";
 import Activities from "../components/Activities";
 
+import PeopleIcon from "@mui/icons-material/People";
+import ChecklistIcon from "@mui/icons-material/Checklist";
+import LineAxisIcon from "@mui/icons-material/LineAxis";
+
 import { useLocation } from "react-router-dom";
 
 function CustomTabPanel(props) {
@@ -75,9 +79,42 @@ export default function TableTabs({ setShowAlert }) {
           aria-label="basic tabs example"
           className="  w-[32%] p-2 ml-6 "
         >
-          <Tab label="Trainee" {...a11yProps(0)} />
-          <Tab label="Attendance" {...a11yProps(1)} />
-          <Tab label="Activities" {...a11yProps(2)} />
+          <Tab
+            label="Trainee"
+            {...a11yProps(0)}
+            icon={<PeopleIcon />}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexDirection: "row",
+              justifyContent: "center",
+              gap: 5,
+            }}
+          />
+          <Tab
+            label="Attendance"
+            {...a11yProps(1)}
+            icon={<ChecklistIcon />}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexDirection: "row",
+              justifyContent: "center",
+              gap: 5,
+            }}
+          />
+          <Tab
+            label="Activities"
+            {...a11yProps(2)}
+            icon={<LineAxisIcon />}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexDirection: "row",
+              justifyContent: "center",
+              gap: 5,
+            }}
+          />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
