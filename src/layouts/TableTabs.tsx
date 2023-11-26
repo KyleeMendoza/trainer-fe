@@ -12,8 +12,10 @@ import Activities from "../components/Activities";
 import PeopleIcon from "@mui/icons-material/People";
 import ChecklistIcon from "@mui/icons-material/Checklist";
 import LineAxisIcon from "@mui/icons-material/LineAxis";
+import PermContactCalendarIcon from "@mui/icons-material/PermContactCalendar";
 
 import { useLocation } from "react-router-dom";
+import Sessions from "../components/Sessions";
 
 //tab panel
 function CustomTabPanel(props) {
@@ -83,6 +85,18 @@ export default function TableTabs({ setShowAlert }) {
           className="  w-[32%] p-2 ml-6 "
         >
           <Tab
+            label="Sessions"
+            {...a11yProps(3)}
+            icon={<PermContactCalendarIcon />}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexDirection: "row",
+              justifyContent: "center",
+              gap: 5,
+            }}
+          />
+          <Tab
             label="Trainee"
             {...a11yProps(0)}
             icon={<PeopleIcon />}
@@ -123,15 +137,20 @@ export default function TableTabs({ setShowAlert }) {
       {/* container of each tabs */}
       <CustomTabPanel value={value} index={0}>
         <div className=" rounded-2xl shadow-xl p-5">
-          <Trainee />
+          <Sessions />
         </div>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         <div className=" rounded-2xl shadow-xl p-5">
-          <Attendance setShowAlert={setShowAlert} />
+          <Trainee />
         </div>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
+        <div className=" rounded-2xl shadow-xl p-5">
+          <Attendance setShowAlert={setShowAlert} />
+        </div>
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={3}>
         <div className=" rounded-2xl shadow-xl p-5">
           <Activities setShowAlert={setShowAlert} data={data} />
         </div>
