@@ -14,6 +14,7 @@ import Profile from "./pages/Profile";
 import TableTabs from "./layouts/TableTabs";
 
 function App() {
+  //USER INFORMATION - passing this as prop in children routes enables them to access this data.
   const user = {
     name: "Peter Roosevelt",
     job: "Licensed Trainer",
@@ -113,14 +114,17 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* NAVIGATION AS THE PARENT ROUTE */}
         <Route
           path="/"
           element={
             <TrainerNav showAlert={showAlert} setShowAlert={setShowAlert} />
           }
         >
+          {/* CHILDREN ROUTES */}
           <Route index element={<Dashboard user={user} />} />
           <Route path="dashboard" element={<Dashboard user={user} />} />
+          {/* this training route has its own children routes */}
           <Route
             path="training/*"
             element={<TrainingRoutes setShowAlert={setShowAlert} />}

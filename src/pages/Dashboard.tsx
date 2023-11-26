@@ -17,7 +17,7 @@ function Dashboard({ user }) {
           </div>
           <div className="flex flex-col justify-center items-center">
             <p className="font-bold text-xl">{user.name}</p>
-            <p>Licensed Trainer</p>
+            <p>{user.job}</p>
           </div>
         </div>
         <div className="flex flex-col gap-4 justify-center items-center">

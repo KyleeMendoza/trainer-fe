@@ -10,6 +10,7 @@ import {
   GridToolbarExport,
 } from "@mui/x-data-grid/components";
 
+// column model
 const columns = [
   {
     field: "id",
@@ -37,6 +38,7 @@ const columns = [
   },
 ];
 
+//data of sessions
 const data = [
   {
     id: 1,

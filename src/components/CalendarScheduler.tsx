@@ -66,6 +66,7 @@ export default function CalendarScheduler() {
   return (
     <Scheduler
       view="month"
+      // this is the data to be put in the calendar. fetch it from db. its already in json form
       events={[
         {
           event_id: 1,

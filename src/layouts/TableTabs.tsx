@@ -15,6 +15,7 @@ import LineAxisIcon from "@mui/icons-material/LineAxis";
 
 import { useLocation } from "react-router-dom";
 
+//tab panel
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -35,12 +36,14 @@ function CustomTabPanel(props) {
   );
 }
 
+//typescript proptypes
 CustomTabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.number.isRequired,
   value: PropTypes.number.isRequired,
 };
 
+//index of tab panel
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
@@ -71,7 +74,7 @@ export default function TableTabs({ setShowAlert }) {
   return (
     <Box sx={{ width: "100%", padding: "2rem" }}>
       {title && <p className="text-3xl font-bold">{title}</p>}
-      {/* <p className="text-3xl font-bold">Basic Fire and Safety</p> */}
+      {/* tab panel box */}
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}
@@ -117,6 +120,7 @@ export default function TableTabs({ setShowAlert }) {
           />
         </Tabs>
       </Box>
+      {/* container of each tabs */}
       <CustomTabPanel value={value} index={0}>
         <div className=" rounded-2xl shadow-xl p-5">
           <Trainee />

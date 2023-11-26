@@ -56,6 +56,7 @@ function TrainerNav({ showAlert, setShowAlert }) {
         </div>
         <div className="content-container flex h-[90%]">
           <div className="side-nav w-[5%] h-full bg-full-blue  flex flex-col py-5 gap-4 text-white text-sm capitalize">
+            {/* THIS IS THE SIDEBAR NAVIGATION */}
             {linkName.map((item, index) => (
               <NavLink to={links[index]} key={index} className="">
                 <div className="flex flex-col justify-center items-center  hover:text-[#E6AF2E]">
